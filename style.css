@@ -1,0 +1,39 @@
+/* This is the right CSS configuration to obtain a grid
+inside the container */
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    border: 3px solid black;
+    width: 80vh;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .row {
+    display: flex;
+    border: 1px solid red;
+    flex: auto;
+}
+
+.col {
+    border: 1px solid blue;
+    flex: auto;
+} */
+
+/* We can start adding other styles from here on */
+h1 {
+    margin-bottom: 20px;
+}
