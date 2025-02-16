@@ -1,5 +1,6 @@
 /* This is the right CSS configuration to obtain a grid
 inside the container */
+
 * {
     box-sizing:border-box;
     margin:0;
@@ -11,10 +12,26 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column;
+    gap: 2vh;
+    background-color: darkgrey;
 }
 
-.container {
+.title-and-grid-container,
+.left-column-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+.left-column-container {
+    display: flex;
+    padding: 1vh;
+    flex-basis: 30vh;
+}
+
+.grid-container {
     border: 3px solid black;
     width: 80vh;
     height: 80vh;
@@ -36,4 +53,8 @@ body {
 /* We can start adding other styles from here on */
 h1 {
     margin-bottom: 20px;
+}
+
+button {
+    padding: 2vh;
 }
