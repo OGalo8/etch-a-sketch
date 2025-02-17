@@ -9,18 +9,16 @@
 </head>
 <body>
     <div class="left-column-container">
-        <button id="restart-button">Restart</button>
-        <button id="remove-grid-button">Remove Grid</button>
-        <h2 class="grid-size">Grid Size:</h2>
-        <h2 id="grid-size-number" class="grid-size">16x16</h2>
-        <input id="grid-size-slider" class="grid-size" type="range" min="4" value="16"  max="100">
+        <button class="left-column-item" id="remove-color-button">Remove Color</button>
+        <div class="slider-container">
+            <h2 class="left-column-item">Grid Size:</h2>
+            <h2 id="grid-size-number" class="left-column-item">16x16</h2>
+            <input id="grid-size-slider" class="left-column-item" type="range" min="4" value="16"  max="100">
+        </div>
     </div>
     <div class="title-and-grid-container">
         <h1>Etch-a-Sketch!</h1>
-        <div class="grid-container">
-    </div>
-
-
+        <div class="grid-container"></div>
     </div>
 </body>
 </html>

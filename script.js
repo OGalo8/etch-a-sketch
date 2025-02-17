@@ -4,20 +4,14 @@ let gridSize = 16;
 const container = document.querySelector(".grid-container");
 
 
-
-// showing the grid size on top of the slider
-let slider = document.querySelector("#grid-size-slider");
-let output = document.querySelector("#grid-size-number");
-
 //functions to create the grid
-function createRows(rowsToCreate){
+function createGrid(rowsToCreate){
     for(let i = 1; i<= rowsToCreate; i++){
         const newRow = document.createElement("div");
         newRow.setAttribute("class",`row`);
-        newRow.setAttribute("id",`row-${i}`);
         newRow.setAttribute("style",`
             display: flex;
-            border: 1px solid grey;
+            border: 1px solid #B399D4;
             flex: auto;`);        
         container.appendChild(newRow);    
         createColumns(newRow,i,rowsToCreate);
@@ -28,60 +22,53 @@ function createColumns(newRow,i,rowsToCreate){
     for (let j = 1; j<=rowsToCreate; j++){
         const newCol = document.createElement("div");
         newCol.setAttribute("class","col");
-        newCol.setAttribute("id",`col-${i}-${j}`);
         newCol.setAttribute("style",`
-            border: 1px solid grey;
+            border: 1px solid #B399D4;
             flex: auto;`);
         newRow.appendChild(newCol);
     }
 }
 
 // creating an initial grid
-createRows(gridSize);
-
-// const allRows = document.querySelectorAll(".row");
-// for (let i = 0; i <= 2*gridSize; i++){
-//     allRows.item(i).remove();
-// }
-
+createGrid(gridSize);
 
 
 // remove grid when the slider moves, so it can create a new one
-// function removeRows(rowsToRemove){
-//     const allRows = document.querySelectorAll(".row");
-//     for (let i = 0; i <= rowsToRemove; i++){
-//         allRows.item(i).remove();
-//     }
-// }
+function removeGrid(){
+    const allRows = document.querySelectorAll(".row");
+    for (currentRow of allRows){
+        currentRow.remove();
+    }
+}
 
-//updates the value of gridSize based on the slider's value
-// output.innerHTML = slider.value;
-// slider.oninput = function newGridSize(){
-//     //slider called the function, so 'this' knows that it must refer to slider.
-//     // it doesn't work the same way with arrow functions.
-//     output.innerHTML = this.value
-    
-//     let sliderGridSize = this.value;
-//     let difference = sliderGridSize - gridSize;
-//     if(difference > 0) createRows(difference);
-//     if(difference <0) removeRows(difference);
-// }
+// showing the grid size on top of the slider
+let slider = document.querySelector("#grid-size-slider");
+let output = document.querySelector("#grid-size-number");
+
+//updates the value of the grid based on the slider's value
+output.textContent = slider.value;
+slider.addEventListener("input",(e) => { 
+    output.textContent = e.target.value;
+    removeGrid();
+    gridSize = e.target.value;
+    createGrid(gridSize);
+})
 
 
-// logic for changing color when mouse hovers over an element
+// changing color when mouse hovers over an element
 container.addEventListener("mouseover",(e)=> {
     if(e.target.className != "col") return;
-    e.target.style.backgroundColor = "red";
+    e.target.style.backgroundColor = "#CE9DD9";
 });
 
-// logic for the restart button. It will eliminate the color of the grid.
-const restartBtn = document.querySelector("#restart-button");
+// Restart button will eliminate the color of the grid.
+const removeColorBtn = document.querySelector("#remove-color-button");
 
-restartBtn.addEventListener("click",function decolor(e) {
+removeColorBtn.addEventListener("click",function decolor(e) {
     if(!e.target.closest ("button")) return; //if we do not click exactly on the restart button, nothing will happen
     const allCols = document.querySelectorAll(".col");
     for (const currentCol of allCols){ //this is how we iterate through a nodeList
-        currentCol.style.backgroundColor = "darkgrey";
+        currentCol.style.backgroundColor = "#F5E1FD";
     }
 });
 

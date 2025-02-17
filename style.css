@@ -1,10 +1,8 @@
-/* This is the right CSS configuration to obtain a grid
-inside the container */
-
 * {
     box-sizing:border-box;
     margin:0;
     padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
@@ -13,7 +11,7 @@ body {
     align-items: center;
     height: 100vh;
     gap: 2vh;
-    background-color: darkgrey;
+    background-color: #F5E1FD;
 }
 
 .title-and-grid-container,
@@ -22,39 +20,61 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid red;
 }
 
 .left-column-container {
     display: flex;
+    flex-direction: column;
+    gap: 4vh;
     padding: 1vh;
     flex-basis: 30vh;
 }
 
+.left-column-item {
+    color: #3E2A47; 
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .grid-container {
-    border: 3px solid black;
+    border: 1px solid #B399D4;
     width: 80vh;
     height: 80vh;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
 }
 
-/* .row {
-    display: flex;
-    border: 1px solid red;
-    flex: auto;
-}
 
-.col {
-    border: 1px solid blue;
-    flex: auto;
-} */
-
-/* We can start adding other styles from here on */
 h1 {
     margin-bottom: 20px;
+    color: #3E2A47;
+    font-weight: 600; 
 }
 
 button {
     padding: 2vh;
+    border: 1px solid #B399D4;
+    font-weight: 900;;
+}
+
+#grid-size-slider {
+    appearance: none;
+    background: #F5E1FD;
+    outline: 1px solid #B399D4;
+    border-radius: 10px;
+}
+
+#grid-size-slider::-webkit-slider-thumb {
+    appearance: none;
+    background-color: #B399D4; /* color de fondo */
+    border-radius: 50%; /* hacer el thumb redondo */
+    width: 20px; /* tamaño del thumb */
+    height: 20px; /* tamaño del thumb */
+    cursor: pointer; /* el cursor cambia a un puntero al pasar sobre el thumb */
 }
