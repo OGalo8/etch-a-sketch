@@ -65,15 +65,23 @@ function changeGridColor(color){
 
 changeGridColor("#3E2A47");
 
-// Restart button will eliminate the color of the grid.
-const removeDrawBtn = document.querySelector("#remove-color-button");
+// color picker changes the color of the grid based on selection
+const colorPicker = document.querySelector("#color-picker");
+colorPicker.addEventListener("input", (e)=>{
+    changeGridColor(e.target.value);
+})
 
-removeDrawBtn.addEventListener("click",function decolor(e) {
+// Remove draw button will eliminate the color of the grid.
+const resetBtn = document.querySelector("#reset-button");
+
+resetBtn.addEventListener("click",function decolor(e) {
     if(!e.target.closest ("button")) return; //if we do not click exactly on the restart button, nothing will happen
     const allCols = document.querySelectorAll(".col");
     for (const currentCol of allCols){ //this is how we iterate through a nodeList
         currentCol.style.backgroundColor = "#F5E1FD";
     }
+    colorPicker.value = "#3E2A47"
+    changeGridColor("#3E2A47");
 });
 
 // Adding an "erase" button that will change the colored squares in the grid back to their initial color 
@@ -86,3 +94,12 @@ const paintBtn = document.querySelector("#paint-button");
 paintBtn.addEventListener("click",(e)=> {    
     changeGridColor("#3E2A47");
 });
+
+// we will now add a button that will randomize colors as we paint in our grid
+function getRandomInt(max = 255) {
+    return Math.floor(Math.random() * max);
+  }
+
+function generateRandomColor(){
+    console.log( `rgb(${getRandomInt()},${getRandomInt()},${getRandomInt()})`);
+}

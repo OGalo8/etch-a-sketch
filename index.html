@@ -9,7 +9,13 @@
 </head>
 <body>
     <div class="left-column-container">
-        <button class="left-column-item" id="remove-color-button">Remove Draw</button>
+        <div class="color-picker-container">
+            <h3 class="left-column-item">Color picker: </h3>
+            <input type="color" class="left-column-item" id="color-picker" value="#3E2A47">
+        </div>
+        <button class="left-column-item" id="erase-button">Eraser</button>
+        <button class="left-column-item" id="reset-button">Reset</button>
+        <button class="left-column-item" id="paint-button">Paint !</button>
         <div class="slider-container">
             <h2 class="left-column-item">Grid Size:</h2>
             <h2 id="grid-size-number" class="left-column-item"></h2>
