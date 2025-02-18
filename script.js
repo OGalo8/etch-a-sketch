@@ -46,9 +46,9 @@ let slider = document.querySelector("#grid-size-slider");
 let output = document.querySelector("#grid-size-number");
 
 //updates the value of the grid based on the slider's value
-output.textContent = slider.value;
+output.textContent = `${slider.value}x${slider.value}`
 slider.addEventListener("input",(e) => { 
-    output.textContent = e.target.value;
+    output.textContent = `${e.target.value}x${e.target.value}`
     removeGrid();
     gridSize = e.target.value;
     createGrid(gridSize);
@@ -56,15 +56,19 @@ slider.addEventListener("input",(e) => {
 
 
 // changing color when mouse hovers over an element
-container.addEventListener("mouseover",(e)=> {
-    if(e.target.className != "col") return;
-    e.target.style.backgroundColor = "#CE9DD9";
-});
+function changeGridColor(color){
+    container.addEventListener("mouseover",(e)=> {
+        if(e.target.className != "col") return;
+        e.target.style.backgroundColor = color;
+    });
+}
+
+changeGridColor("#3E2A47");
 
 // Restart button will eliminate the color of the grid.
-const removeColorBtn = document.querySelector("#remove-color-button");
+const removeDrawBtn = document.querySelector("#remove-color-button");
 
-removeColorBtn.addEventListener("click",function decolor(e) {
+removeDrawBtn.addEventListener("click",function decolor(e) {
     if(!e.target.closest ("button")) return; //if we do not click exactly on the restart button, nothing will happen
     const allCols = document.querySelectorAll(".col");
     for (const currentCol of allCols){ //this is how we iterate through a nodeList
@@ -72,5 +76,13 @@ removeColorBtn.addEventListener("click",function decolor(e) {
     }
 });
 
+// Adding an "erase" button that will change the colored squares in the grid back to their initial color 
+const eraserBtn = document.querySelector("#erase-button");
+eraserBtn.addEventListener("click",(e)=>{
+    changeGridColor("#F5E1FD")
+})
 
-
+const paintBtn = document.querySelector("#paint-button");
+paintBtn.addEventListener("click",(e)=> {    
+    changeGridColor("#3E2A47");
+});
