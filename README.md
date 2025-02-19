@@ -23,4 +23,4 @@ Will now add a function to modify the opacity of the painting and, finally, will
 
 <!--  -->
 
-The button to increase the opacity has been added. Now we only need to make the whole UI flexible as we shrink or grow the window, and then rewrite some parts of the code to avoid repetition. Functionality with window at full size is completed.
+The button to increase the opacity has been added. The opacity now behaves as a sinusoidal function when the "Vary Opacity" button is selected. Project is completed.

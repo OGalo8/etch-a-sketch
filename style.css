@@ -15,11 +15,16 @@ body {
 }
 
 .title-and-grid-container,
-.left-column-container {
+.left-column-container,
+.color-picker-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.color-picker-container {
+    gap: 1vh;
 }
 
 .left-column-container {
@@ -71,6 +76,14 @@ button {
     background-color:#F5E1FD;
 }
 
+
+#color-picker, 
+#color-picker::-webkit-color-swatch-wrapper  {
+    width: 100px;
+    height: 50px;
+    border: none;
+}
+
 #grid-size-slider {
     appearance: none;
     background: #F5E1FD;
@@ -85,4 +98,8 @@ button {
     width: 20px; 
     height: 20px; 
     cursor: pointer; 
+}
+
+button {
+    color: rgb(red, green, blue)
 }

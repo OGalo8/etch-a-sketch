@@ -124,10 +124,11 @@ randomBtn.addEventListener("click", (e) => {
 const opacityBtn = document.querySelector("#opacity-button");
 
 opacityBtn.addEventListener("click", (e) => {
-  let opacity = 0;
+  let squaresEntered = 0;
   container.addEventListener("mouseover", (e) => {
     if (e.target.className != "col") return;
-    opacity += 0.1;
+    opacity = Math.abs(Math.sin((Math.PI * squaresEntered) / 20));
     e.target.style.backgroundColor = `rgba(0,0,0,${opacity})`;
+    squaresEntered += 1;
   });
 });
